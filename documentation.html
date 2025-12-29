@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uber C++ Program - Complete Documentation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/vs2015.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f7fa;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Left Sidebar Navigation */
+        .sidebar {
+            width: 280px;
+            background: linear-gradient(to bottom, #2c3e50, #34495e);
+            color: white;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            padding: 1.5rem;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+            z-index: 100;
+        }
+
+        .sidebar-header {
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 1.5rem;
+        }
+
+        .sidebar-header h2 {
+            color: white;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .sidebar-header p {
+            color: #bdc3c7;
+            font-size: 0.9rem;
+        }
+
+        .nav-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .nav-section-title {
+            color: #ecf0f1;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.75rem;
+            padding-left: 0.5rem;
+        }
+
+        .nav-links {
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .nav-links a {
+            color: #bdc3c7;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            display: block;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            border-left: 3px solid transparent;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border-left-color: #667eea;
+        }
+
+        .nav-links a.active {
+            background: rgba(102, 126, 234, 0.2);
+            color: white;
+            border-left-color: #667eea;
+        }
+
+        .nav-number {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            margin-right: 0.5rem;
+            font-size: 0.8rem;
+        }
+
+        /* Main Content Area */
+        .main-content {
+            flex: 1;
+            margin-left: 280px;
+            padding: 2rem;
+            max-width: calc(100% - 280px);
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(to right, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+
+        /* Sections */
+        .section {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #667eea;
+            border-bottom: 3px solid #764ba2;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .section-number {
+            color: #764ba2;
+            margin-right: 0.5rem;
+        }
+
+        /* Cards */
+        .card {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #667eea;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        .feature-card h3 {
+            color: #764ba2;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .feature-card h3 i {
+            color: #667eea;
+        }
+
+        /* Code Container */
+        .code-container {
+            position: relative;
+            background: #1e1e1e;
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 1.5rem 0;
+        }
+
+        .code-header {
+            background: #2d2d2d;
+            padding: 0.75rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #404040;
+        }
+
+        .code-header span {
+            color: #d4d4d4;
+            font-weight: bold;
+        }
+
+        .copy-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background 0.3s ease;
+        }
+
+        .copy-btn:hover {
+            background: #764ba2;
+        }
+
+        pre {
+            margin: 0;
+            padding: 1rem;
+            overflow-x: auto;
+            font-size: 0.9rem;
+        }
+
+        code {
+            font-family: 'Consolas', 'Monaco', monospace;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background: #f8f9fa;
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background: #f5f7fa;
+        }
+
+        /* Buttons */
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(to right, #667eea, #764ba2);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+            margin: 1rem 0;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+            color: #666;
+            border-top: 1px solid #ddd;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .sidebar {
+                width: 240px;
+            }
+            
+            .main-content {
+                margin-left: 240px;
+                max-width: calc(100% - 240px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                position: static;
+                width: 100%;
+                height: auto;
+                margin-bottom: 1rem;
+            }
+            
+            .main-content {
+                margin-left: 0;
+                max-width: 100%;
+                padding: 1rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h2><i class="fas fa-car"></i> Uber C++ Program</h2>
+            <p>Complete Documentation</p>
+        </div>
+        
+        <div class="nav-section">
+            <div class="nav-section-title">Main Sections</div>
+            <ul class="nav-links">
+                <li><a href="#overview" class="active">
+                    <span class="nav-number">1</span> Overview
+                </a></li>
+                <li><a href="#features">
+                    <span class="nav-number">2</span> Features
+                </a></li>
+                <li><a href="#code">
+                    <span class="nav-number">3</span> Source Code
+                </a></li>
+                <li><a href="#documentation">
+                    <span class="nav-number">4</span> Documentation
+                </a></li>
+            </ul>
+        </div>
+        
+        <div class="nav-section">
+            <div class="nav-section-title">Quick Links</div>
+            <ul class="nav-links">
+                <li><a href="#ride-booking">
+                    <i class="fas fa-bookmark"></i> Ride Booking
+                </a></li>
+                <li><a href="#fare-calculator">
+                    <i class="fas fa-calculator"></i> Fare Calculator
+                </a></li>
+                <li><a href="#drivers">
+                    <i class="fas fa-users"></i> Driver Management
+                </a></li>
+                <li><a href="#variables">
+                    <i class="fas fa-code"></i> Variables
+                </a></li>
+                <li><a href="#code">
+                    <i class="fas fa-download"></i> Download
+                </a></li>
+            </ul>
+        </div>
+        
+        <div class="nav-section">
+            <div class="nav-section-title">Program Related Details</div>
+            <ul class="nav-links">
+                <li><a href="#locations">
+                    <i class="fas fa-map-marker-alt"></i> Lahore Locations
+                </a></li>
+                <li><a href="#pricing">
+                    <i class="fas fa-tag"></i> Pricing Details
+                </a></li>
+                <li><a href="#surge-pricing">
+                    <i class="fas fa-chart-line"></i> Surge Pricing
+                </a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <header>
+            <h1><i class="fas fa-car"></i> Uber C++ Program - Lahore Edition</h1>
+            <p class="subtitle">A Complete Ride-Hailing System for University of Central Punjab (UCP)</p>
+            <p>Complete documentation of Command-Line Ride-Hailing System with Lahore-specific locations</p>
+        </header>
+
+        <section id="overview" class="section">
+            <h2><span class="section-number">1.</span> <i class="fas fa-info-circle"></i> Program Overview</h2>
+            <div class="card">
+                <p>This is a complete C++ implementation of a simple Uber-like ride-hailing system that runs entirely in the command line. The program demonstrates fundamental programming concepts while providing a functional ride-booking experience using C++ arrays, loops, and conditionals.</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3><i class="fas fa-code"></i> Core Concepts</h3>
+                    <p>Variables, loops, arrays, conditionals, I/O operations, and character arrays</p>
+                </div>
+                <div class="feature-card">
+                    <h3><i class="fas fa-users"></i> User Features</h3>
+                    <p>Ride booking, fare calculation, driver selection, surge pricing, and ride confirmation</p>
+                </div>
+                <div class="feature-card">
+                    <h3><i class="fas fa-desktop"></i> Interface</h3>
+                    <p>Clean console interface with formatted menus and borders</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="section">
+            <h2><span class="section-number">2.</span> <i class="fas fa-star"></i> Program Features</h2>
+            
+            <div id="ride-booking" class="card">
+                <h3>1. Enhanced Ride Booking System</h3>
+                <ul style="padding-left: 1.5rem; margin-top: 0.5rem;">
+                    <li>Rider name input (character array up to 50 characters)</li>
+                    <li>Location selection from 10 famous Lahore destinations</li>
+                    <li>Real distances from UCP (3.2km to 12.3km)</li>
+                    <li>Automatic surge pricing based on driver availability</li>
+                    <li>Driver selection with vehicle type and rate per km</li>
+                    <li>Detailed ride confirmation with all parameters</li>
+                </ul>
+            </div>
+
+            <div id="fare-calculator" class="card">
+                <h3>2. Advanced Fare Calculator</h3>
+                <ul style="padding-left: 1.5rem; margin-top: 0.5rem;">
+                    <li>Location-based distance calculation</li>
+                    <li>Manual surge pricing option (1.5x)</li>
+                    <li>Five vehicle type pricing: Auto, Bike, Economy, Premium, SUV</li>
+                    <li>Different rates per km: PKR 25 (Bike) to PKR 120 (SUV)</li>
+                    <li>PKR currency display with proper formatting</li>
+                </ul>
+            </div>
+
+            <div id="drivers" class="card">
+                <h3>3. Comprehensive Driver Management</h3>
+                <ul style="padding-left: 1.5rem; margin-top: 0.5rem;">
+                    <li>View all available drivers with details</li>
+                    <li>Driver ratings display (4.5-4.9) with star visualization</li>
+                    <li>Five vehicle types: Economy, Premium, SUV, Bike, Auto</li>
+                    <li>Five pre-defined drivers: Ali, Ahmed, Usman, Hassan, Bilal</li>
+                    <li>Rate per km specific to each driver's vehicle type</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>4. Menu System</h3>
+                <ul style="padding-left: 1.5rem; margin-top: 0.5rem;">
+                    <li>Main menu with 4 options</li>
+                    <li>Formatted headers with borders</li>
+                    <li>Error handling for invalid inputs</li>
+                    <li>Continuous loop until exit</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="code" class="section">
+            <h2><span class="section-number">3.</span> <i class="fas fa-code"></i> Complete Source Code</h2>
+            <p>Below is the complete updated C++ source code. Click "Copy Code" to copy it to your clipboard.</p>
+            
+            <a href="#" onclick="downloadCode()" class="download-btn">
+                <i class="fas fa-download"></i> Download Source Code (uber_ucp.cpp)
+            </a>
+            
+            <div class="code-container">
+                <div class="code-header">
+                    <span>uber_ucp.cpp - Updated C++ Source Code</span>
+                    <button class="copy-btn" onclick="copyCode()">
+                        <i class="fas fa-copy"></i> Copy Code
+                    </button>
+                </div>
+                <pre><code class="language-cpp" id="full-code">
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+using namespace std;
+
+int main() {
+
+    char riderName[50];
+    int choice;
+    double totalFare;
+    double surgeMultiplier = 1.0;
+    int availableDrivers = 5;
+
+    string locations[10] = {
+        "Emporium Mall", "Liberty Market", "Fortress Stadium",
+        "Packages Mall", "DHA Phase 5", "Gulberg Main Market",
+        "Johar Town", "Wapda Town", "Model Town", "Allama Iqbal Airport"
+    };
+    
+    double distances[10] = {
+        8.5,   // Emporium Mall (km)
+        6.2,   // Liberty Market
+        9.1,   // Fortress Stadium
+        7.8,   // Packages Mall
+        5.5,   // DHA Phase 5
+        4.8,   // Gulberg Main Market
+        3.2,   // Johar Town
+        4.5,   // Wapda Town
+        6.8,   // Model Town
+        12.3   // Allama Iqbal Airport
+    };
+
+    char driverNames[5][20] = { "Ali", "Ahmed", "Usman", "Hassan", "Bilal" };
+    string carTypes[5] = { "Economy", "Premium", "SUV", "Bike", "Auto" };
+    double ratings[5] = { 4.8, 4.9, 4.7, 4.6, 4.5 };
+    
+    double ratesPerKm[5] = {
+        55.0,   // Economy
+        85.0,   // Premium
+        120.0,  // SUV
+        25.0,   // Bike
+        35.0    // Auto
+    };
+
+    while (true) {
+        cout &lt;&lt; "\n";
+        cout &lt;&lt; "#################################################\n";
+        cout &lt;&lt; "#                                               #\n";
+        cout &lt;&lt; "#                    U B E R                    #\n";
+        cout &lt;&lt; "#                                               #\n";
+        cout &lt;&lt; "#################################################\n";
+        cout &lt;&lt; "#  [1] Book a Ride                              #\n";
+        cout &lt;&lt; "#  [2] Calculate Fare                           #\n";
+        cout &lt;&lt; "#  [3] View Available Drivers                   #\n";
+        cout &lt;&lt; "#  [4] Exit                                     #\n";
+        cout &lt;&lt; "#################################################\n";
+        cout &lt;&lt; "Enter choice: ";
+        cin &gt;&gt; choice;
+
+        if (choice == 1) {
+            cout &lt;&lt; "\n===============================================\n";
+            cout &lt;&lt; "                 BOOK A RIDE                   \n";
+            cout &lt;&lt; "===============================================\n";
+
+            cout &lt;&lt; "Your Name      : ";
+            cin &gt;&gt; riderName;
+
+            cout &lt;&lt; "\n------------------ WHERE TO? -------------------\n";
+            cout &lt;&lt; "Pickup: University of Central Punjab, Lahore\n\n";
+            cout &lt;&lt; "Select Destination:\n";
+            for (int i = 0; i &lt; 10; i++) {
+                cout &lt;&lt; " [" &lt;&lt; i + 1 &lt;&lt; "] " &lt;&lt; locations[i];
+                // Add spaces to make it look aligned
+                int spaces = 25 - locations[i].length();
+                for (int s = 0; s &lt; spaces; s++) {
+                    cout &lt;&lt; " ";
+                }
+                cout &lt;&lt; "(" &lt;&lt; distances[i] &lt;&lt; " km)\n";
+            }
+            cout &lt;&lt; "------------------------------------------------\n";
+            
+            int locationChoice;
+            cout &lt;&lt; "Select destination (1-10): ";
+            cin &gt;&gt; locationChoice;
+            
+            if (locationChoice &lt; 1 || locationChoice &gt; 10) {
+                cout &lt;&lt; "\n[ ERROR ] Invalid destination selection\n";
+                continue;
+            }
+            
+            double distance = distances[locationChoice - 1];
+            
+            if (availableDrivers &lt; 3) {
+                surgeMultiplier = 1.5;
+                cout &lt;&lt; "\n[ NOTICE ] Surge Pricing Active (1.5x)\n";
+            } else {
+                surgeMultiplier = 1.0;
+            }
+
+            cout &lt;&lt; "\n---------------- DRIVER LIST ------------------\n";
+            cout &lt;&lt; " #  Driver    Vehicle    Rate/Km   Rating\n";
+            cout &lt;&lt; "--------------------------------------------\n";
+            for (int i = 0; i &lt; availableDrivers; i++) {
+                cout &lt;&lt; " " &lt;&lt; i + 1 &lt;&lt; "  ";
+                
+                cout &lt;&lt; driverNames[i];
+                int spaces1 = 10 - strlen(driverNames[i]);
+                for (int s = 0; s &lt; spaces1; s++) cout &lt;&lt; " ";
+                
+                cout &lt;&lt; carTypes[i];
+                int spaces2 = 11 - carTypes[i].length();
+                for (int s = 0; s &lt; spaces2; s++) cout &lt;&lt; " ";
+                
+                cout &lt;&lt; "PKR " &lt;&lt; ratesPerKm[i];
+                if (ratesPerKm[i] &lt; 100) cout &lt;&lt; " ";
+                
+                cout &lt;&lt; "      " &lt;&lt; ratings[i] &lt;&lt; "\n";
+            }
+            cout &lt;&lt; "------------------------------------------------\n";
+
+            int driverChoice;
+            cout &lt;&lt; "Choose Driver (1-5): ";
+            cin &gt;&gt; driverChoice;
+
+            if (driverChoice &lt; 1 || driverChoice &gt; availableDrivers) {
+                cout &lt;&lt; "\n[ ERROR ] Invalid driver selection\n";
+            } else {
+                totalFare = distance * ratesPerKm[driverChoice - 1] * surgeMultiplier;
+
+                cout &lt;&lt; "\n================ RIDE DETAILS =================\n";
+                cout &lt;&lt; " Pickup  : University of Central Punjab, Lahore\n";
+                cout &lt;&lt; " Dropoff : " &lt;&lt; locations[locationChoice - 1] &lt;&lt; endl;
+                cout &lt;&lt; " Distance: " &lt;&lt; distance &lt;&lt; " km\n";
+                cout &lt;&lt; " Rider   : " &lt;&lt; riderName &lt;&lt; endl;
+                cout &lt;&lt; " Driver  : " &lt;&lt; driverNames[driverChoice - 1] &lt;&lt; endl;
+                cout &lt;&lt; " Vehicle : " &lt;&lt; carTypes[driverChoice - 1] &lt;&lt; endl;
+                cout &lt;&lt; " Rate    : PKR " &lt;&lt; ratesPerKm[driverChoice - 1] &lt;&lt; " per km\n";
+                cout &lt;&lt; " Surge   : " &lt;&lt; surgeMultiplier &lt;&lt; "x\n";
+                cout &lt;&lt; " Fare    : PKR " &lt;&lt; totalFare &lt;&lt; endl;
+                cout &lt;&lt; "================================================\n";
+
+                char confirm;
+                cout &lt;&lt; "Confirm Ride (Y/N): ";
+                cin &gt;&gt; confirm;
+
+                if (confirm == 'Y' || confirm == 'y') {
+                    cout &lt;&lt; "\n[ SUCCESS ] Ride Booked\n";
+                    cout &lt;&lt; driverNames[driverChoice - 1] &lt;&lt; " in " &lt;&lt; carTypes[driverChoice - 1];
+                    cout &lt;&lt; " is on the way to UCP!\n";
+                } else {
+                    cout &lt;&lt; "\n[ CANCELLED ] Ride Cancelled\n";
+                }
+            }
+        }
+
+        else if (choice == 2) {
+            cout &lt;&lt; "\n===============================================\n";
+            cout &lt;&lt; "               FARE CALCULATOR                 \n";
+            cout &lt;&lt; "===============================================\n";
+
+            cout &lt;&lt; "\nFrom: University of Central Punjab, Lahore\n\n";
+            cout &lt;&lt; "Select Destination:\n";
+            for (int i = 0; i &lt; 10; i++) {
+                cout &lt;&lt; " [" &lt;&lt; i + 1 &lt;&lt; "] " &lt;&lt; locations[i];
+                int spaces = 25 - locations[i].length();
+                for (int s = 0; s &lt; spaces; s++) {
+                    cout &lt;&lt; " ";
+                }
+                cout &lt;&lt; "(" &lt;&lt; distances[i] &lt;&lt; " km)\n";
+            }
+            
+            int locationChoice;
+            cout &lt;&lt; "\nSelect destination (1-10): ";
+            cin &gt;&gt; locationChoice;
+            
+            if (locationChoice &lt; 1 || locationChoice &gt; 10) {
+                cout &lt;&lt; "\n[ ERROR ] Invalid destination selection\n";
+                continue;
+            }
+            
+            double distance = distances[locationChoice - 1];
+            
+            cout &lt;&lt; "\nDestination: " &lt;&lt; locations[locationChoice - 1] &lt;&lt; endl;
+            cout &lt;&lt; "Distance: " &lt;&lt; distance &lt;&lt; " km\n\n";
+
+            char surge;
+            cout &lt;&lt; "Surge Pricing (Y/N): ";
+            cin &gt;&gt; surge;
+
+            if (surge == 'Y' || surge == 'y') {
+                surgeMultiplier = 1.5;
+            } else {
+                surgeMultiplier = 1.0;
+            }
+
+            cout &lt;&lt; "\n-------------- FARE DETAILS ------------------\n";
+            cout &lt;&lt; " From    : University of Central Punjab, Lahore\n";
+            cout &lt;&lt; " To      : " &lt;&lt; locations[locationChoice - 1] &lt;&lt; endl;
+            cout &lt;&lt; " Distance: " &lt;&lt; distance &lt;&lt; " km\n";
+            cout &lt;&lt; " Surge   : " &lt;&lt; surgeMultiplier &lt;&lt; "x\n\n";
+            
+            cout &lt;&lt; " Estimated Fare:\n";
+            cout &lt;&lt; " Auto    : PKR " &lt;&lt; distance * 35.0 * surgeMultiplier &lt;&lt; endl;
+            cout &lt;&lt; " Bike    : PKR " &lt;&lt; distance * 25.0 * surgeMultiplier &lt;&lt; endl;
+            cout &lt;&lt; " Economy : PKR " &lt;&lt; distance * 55.0 * surgeMultiplier &lt;&lt; endl;
+            cout &lt;&lt; " Premium : PKR " &lt;&lt; distance * 85.0 * surgeMultiplier &lt;&lt; endl;
+            cout &lt;&lt; " SUV     : PKR " &lt;&lt; distance * 120.0 * surgeMultiplier &lt;&lt; endl;
+            cout &lt;&lt; "------------------------------------------------\n";
+        }
+
+        else if (choice == 3) {
+            cout &lt;&lt; "\n===============================================\n";
+            cout &lt;&lt; "              AVAILABLE DRIVERS                \n";
+            cout &lt;&lt; "===============================================\n";
+            cout &lt;&lt; "Current Location: University of Central Punjab\n\n";
+
+            for (int i = 0; i &lt; availableDrivers; i++) {
+                cout &lt;&lt; "Driver " &lt;&lt; i + 1 &lt;&lt; endl;
+                cout &lt;&lt; " Name    : " &lt;&lt; driverNames[i] &lt;&lt; endl;
+                cout &lt;&lt; " Vehicle : " &lt;&lt; carTypes[i] &lt;&lt; endl;
+                cout &lt;&lt; " Rate    : PKR " &lt;&lt; ratesPerKm[i] &lt;&lt; " per km\n";
+                cout &lt;&lt; " Rating  : " &lt;&lt; ratings[i] &lt;&lt; " ";
+                
+                for (int s = 0; s &lt; 5; s++) {
+                    if (s &lt; (int)ratings[i]) {
+                        cout &lt;&lt; "*";
+                    } else {
+                        cout &lt;&lt; "-";
+                    }
+                }
+                cout &lt;&lt; "\n-----------------------------------------------\n";
+            }
+        }
+
+        else if (choice == 4) {
+            cout &lt;&lt; "\n#################################################\n";
+            cout &lt;&lt; "#           THANK YOU FOR USING UBER             #\n";
+            cout &lt;&lt; "#  We hope to serve you again in Lahore!         #\n";
+            cout &lt;&lt; "#################################################\n";
+            break;
+        }
+
+        else {
+            cout &lt;&lt; "\n[ ERROR ] Invalid choice\n";
+        }
+    }
+
+    return 0;
+}</code></pre>
+            </div>
+        </section>
+
+        <section id="documentation" class="section">
+            <h2><span class="section-number">4.</span> <i class="fas fa-book"></i> Program Documentation</h2>
+            
+            <div id="variables" class="card">
+                <h3>Updated Variables Documentation</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Variable</th>
+                            <th>Type</th>
+                            <th>Purpose</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>riderName[50]</code></td>
+                            <td>char array</td>
+                            <td>Stores the name of the rider (max 49 characters)</td>
+                        </tr>
+                        <tr>
+                            <td><code>locations[10]</code></td>
+                            <td>string array</td>
+                            <td>10 famous Lahore locations from UCP</td>
+                        </tr>
+                        <tr>
+                            <td><code>distances[10]</code></td>
+                            <td>double array</td>
+                            <td>Distances from UCP to each location (3.2-12.3km)</td>
+                        </tr>
+                        <tr>
+                            <td><code>driverNames[5][20]</code></td>
+                            <td>char 2D array</td>
+                            <td>Array of 5 driver names (Ali, Ahmed, Usman, Hassan, Bilal)</td>
+                        </tr>
+                        <tr>
+                            <td><code>carTypes[5]</code></td>
+                            <td>string array</td>
+                            <td>5 vehicle types: Economy, Premium, SUV, Bike, Auto</td>
+                        </tr>
+                        <tr>
+                            <td><code>ratesPerKm[5]</code></td>
+                            <td>double array</td>
+                            <td>Rate per km for each vehicle type (PKR 25-120)</td>
+                        </tr>
+                        <tr>
+                            <td><code>ratings[5]</code></td>
+                            <td>double array</td>
+                            <td>Driver ratings from 4.5 to 4.9</td>
+                        </tr>
+                        <tr>
+                            <td><code>surgeMultiplier</code></td>
+                            <td>double</td>
+                            <td>Dynamic pricing multiplier (1.0 or 1.5)</td>
+                        </tr>
+                        <tr>
+                            <td><code>availableDrivers</code></td>
+                            <td>int</td>
+                            <td>Number of available drivers (fixed at 5)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="locations" class="card">
+                <h3>Lahore Locations from UCP</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Location</th>
+                            <th>Distance</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Emporium Mall</td>
+                            <td>8.5 km</td>
+                            <td>Largest shopping mall in Lahore</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Liberty Market</td>
+                            <td>6.2 km</td>
+                            <td>Popular shopping area in Gulberg</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Fortress Stadium</td>
+                            <td>9.1 km</td>
+                            <td>Shopping mall and sports complex</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Packages Mall</td>
+                            <td>7.8 km</td>
+                            <td>One of Pakistan's largest malls</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>DHA Phase 5</td>
+                            <td>5.5 km</td>
+                            <td>Upscale residential area</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>Gulberg Main Market</td>
+                            <td>4.8 km</td>
+                            <td>Commercial hub of Gulberg</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>Johar Town</td>
+                            <td>3.2 km</td>
+                            <td>Residential area near UCP</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>Wapda Town</td>
+                            <td>4.5 km</td>
+                            <td>Residential colony</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>Model Town</td>
+                            <td>6.8 km</td>
+                            <td>Prestigious residential area</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>Allama Iqbal Airport</td>
+                            <td>12.3 km</td>
+                            <td>Lahore's international airport</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="pricing" class="card">
+                <h3>Vehicle Type Pricing</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Vehicle Type</th>
+                            <th>Rate per km</th>
+                            <th>Base Driver</th>
+                            <th>Typical Use</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Bike</td>
+                            <td>PKR 25.0</td>
+                            <td>Bilal</td>
+                            <td>Quick, economical rides</td>
+                        </tr>
+                        <tr>
+                            <td>Auto</td>
+                            <td>PKR 35.0</td>
+                            <td>Hassan</td>
+                            <td>Short distance rides</td>
+                        </tr>
+                        <tr>
+                            <td>Economy</td>
+                            <td>PKR 55.0</td>
+                            <td>Ali</td>
+                            <td>Standard car rides</td>
+                        </tr>
+                        <tr>
+                            <td>Premium</td>
+                            <td>PKR 85.0</td>
+                            <td>Ahmed</td>
+                            <td>Comfortable sedan rides</td>
+                        </tr>
+                        <tr>
+                            <td>SUV</td>
+                            <td>PKR 120.0</td>
+                            <td>Usman</td>
+                            <td>Group or luxury rides</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="surge-pricing" class="card">
+                <h3>Surge Pricing Logic</h3>
+                <ul style="padding-left: 1.5rem; margin-top: 0.5rem;">
+                    <li><strong>Automatic Surge:</strong> Activates when available drivers &lt; 3</li>
+                    <li><strong>Manual Surge:</strong> User can enable in fare calculator</li>
+                    <li><strong>Multiplier:</strong> 1.5x (50% increase)</li>
+                    <li><strong>Purpose:</strong> Encourages more drivers during high demand</li>
+                    <li><strong>Display:</strong> Shows surge status and multiplier in ride details</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Key Enhancements from Previous Version</h3>
+                <ul style="padding-left: 1.5rem; margin-top: 0.5rem;">
+                    <li><strong>Location-based system:</strong> 10 real Lahore locations instead of manual distance input</li>
+                    <li><strong>Multiple vehicle types:</strong> 5 vehicle options with different pricing</li>
+                    <li><strong>Better formatting:</strong> Improved table layouts and alignment</li>
+                    <li><strong>UCP focus:</strong> Fixed pickup at University of Central Punjab</li>
+                    <li><strong>Enhanced details:</strong> More comprehensive ride summaries</li>
+                    <li><strong>String usage:</strong> Using C++ strings for locations and car types</li>
+                </ul>
+            </div>
+        </section>
+
+        <footer>
+            <p>Simple Uber C++ Program Showcase | Code and documentation by Junaid Khalid</p>
+            <p style="margin-top: 1rem;">
+                <a href="#" onclick="downloadCode()" style="color: #667eea; text-decoration: none; margin: 0 0.5rem;">
+                    <i class="fas fa-download"></i> Download Source Code
+                </a>
+                <a href="#overview" style="color: #667eea; text-decoration: none; margin: 0 0.5rem;">
+                    <i class="fas fa-arrow-up"></i> Back to Top
+                </a>
+            </p>
+        </footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+   
+        hljs.highlightAll();
+
+ 
+        function copyCode() {
+            const codeElement = document.getElementById('full-code');
+            const text = codeElement.innerText;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                const btn = document.querySelector('.copy-btn');
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                btn.style.background = '#28a745';
+                
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.style.background = '';
+                }, 2000);
+            });
+        }
+
+ 
+        function downloadCode() {
+            const codeElement = document.getElementById('full-code');
+            const code = codeElement.innerText;
+            const blob = new Blob([code], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'uber_ucp.cpp';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+
+                    document.querySelectorAll('.nav-links a').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                    
+
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 20,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('.section');
+            let currentSection = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if(scrollY >= sectionTop) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+            
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+                if(link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
