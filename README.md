@@ -18,12 +18,28 @@ A complete command-line ride-hailing system simulation built in C++ with a focus
 
 ## 🔧 Quick Start
 
-### Compile & Run
+### Compile & Run For Linux
 ```bash
-# Clone and run
+# Clone (if using git)
 git clone https://github.com/yourusername/uber-cpp.git
 cd uber-cpp
-g++ -o uber uber.cpp && ./uber
+
+# Compile
+g++ -o uber uber.cpp
+
+# Run
+./uber
+```
+### Compile & Run For Windows
+```bash
+# Navigate to the folder
+cd path\to\your\project
+
+# Compile with MinGW/G++
+g++ -o uber.exe uber.cpp
+
+# Run the program
+uber.exe
 ```
 
 ### Or copy-paste this one-liner:
@@ -51,11 +67,11 @@ curl -o uber.cpp https://raw.githubusercontent.com/yourusername/uber-cpp/main/ub
 
 ## 📚 Documentation
 For complete documentation including:
-- 📖 Detailed feature explanations
-- 🏗️ Code structure and flow diagrams
-- 📊 Complete variable documentation
-- 🗺️ Lahore location details and distances
-- 💰 Pricing tables and surge logic
+-  Detailed feature explanations
+-  Code structure and flow diagrams
+-  Complete variable documentation
+-  Lahore location details and distances
+-  Pricing tables and surge logic
 
 👉 **[Visit Full Documentation](https://junaidkhalid360.github.io/program/documentation.html)**
 
@@ -64,17 +80,9 @@ For complete documentation including:
 uber-cpp/
 ├── uber.cpp              # Main C++ source code
 ├── README.md            # This file
-└── documentation.html   # Complete documentation
 ```
 
-## 🤝 Contributing
-Found a bug? Have a feature idea? Feel free to:
-1. Open an issue
-2. Submit a pull request
-3. Share your suggestions
 
-## 📝 License
-MIT License - See [LICENSE](LICENSE) for details.
 
 ---
 
@@ -82,10 +90,8 @@ MIT License - See [LICENSE](LICENSE) for details.
   <p>Made with ❤️ for the C++ community</p>
   <p><strong>🚗 Happy Coding! 🚗</strong></p>
   
-  [![Star](https://img.shields.io/github/stars/yourusername/uber-cpp?style=social)](https://github.com/yourusername/uber-cpp)
-  [![Fork](https://img.shields.io/github/forks/yourusername/uber-cpp?style=social)](https://github.com/yourusername/uber-cpp/fork)
+  [![Star](https://img.shields.io/github/stars/yourusername/uber-cpp?style=social)](https://github.com/junaidkhalid360/uber-project-cpp)
+  [![Fork](https://img.shields.io/github/forks/yourusername/uber-cpp?style=social)](https://github.com/junaidkhalid360/uber-project-cpp)
 </div>
 
 ---
-
-**Note**: Educational project - not affiliated with Uber Technologies Inc.
