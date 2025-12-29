@@ -9,11 +9,11 @@ This is a complete C++ implementation of a simple Uber-like ride-hailing system 
 - [💻 View Source Code](uber.cpp)
 
 ## ✨ Features
-- ** Location-Based**: 10 famous Lahore locations with real distances from UCP
-- ** Multiple Vehicles**: 5 vehicle types with different rates (Bike, Auto, Economy, Premium, SUV)
-- ** Dynamic Pricing**: Automatic surge pricing when drivers are scarce
-- ** Driver Management**: View driver profiles with ratings
-- ** Fare Calculator**: Estimate fares for all vehicle types
+- **Location-Based**: 10 famous Lahore locations with real distances from UCP
+- **Multiple Vehicles**: 5 vehicle types with different rates (Bike, Auto, Economy, Premium, SUV)
+- **Dynamic Pricing**: Automatic surge pricing when drivers are scarce
+- **Driver Management**: View driver profiles with ratings
+- **Fare Calculator**: Estimate fares for all vehicle types
 
 
 ## 🚀 Usage
