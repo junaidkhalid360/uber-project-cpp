@@ -15,32 +15,6 @@ This is a complete C++ implementation of a simple Uber-like ride-hailing system 
 - ** Driver Management**: View driver profiles with ratings
 - ** Fare Calculator**: Estimate fares for all vehicle types
 
-## 🔧 Quick Start
-
-### Compile & Run For Linux
-```bash
-# Clone (if using git)
-git clone https://github.com/yourusername/uber-cpp.git
-cd uber-cpp
-
-# Compile
-g++ -o uber uber.cpp
-
-# Run
-./uber
-```
-### Compile & Run For Windows
-```bash
-# Navigate to the folder
-cd path\to\your\project
-
-# Compile with MinGW/G++
-g++ -o uber.exe uber.cpp
-
-# Run the program
-uber.exe
-```
-
 
 ## 🚀 Usage
 1. **Book a Ride** - Complete booking with location selection
