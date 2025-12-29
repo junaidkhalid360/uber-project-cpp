@@ -1,20 +1,19 @@
-# 🚗 Uber C++ Program - Lahore Edition
+# 🚗 Uber C++ Program
 
-![C++](https://img.shields.io/badge/C++-17-blue.svg) ![License](https://img.shields.io/badge/License-MIT-green.svg) ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey.svg)
+![C++](https://img.shields.io/badge/C++-17-blue.svg) ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey.svg)
 
-A complete command-line ride-hailing system simulation built in C++ with a focus on Lahore, Pakistan. This program simulates Uber-like functionality with real locations, multiple vehicle types, and dynamic pricing.
+This is a complete C++ implementation of a simple Uber-like ride-hailing system that runs entirely in the command line. The program demonstrates fundamental programming concepts while providing a functional ride-booking experience using C++ arrays, loops, and conditionals.
 
 ## 📋 Quick Links
 - [📖 Full Documentation](https://junaidkhalid360.github.io/program/documentation.html)
 - [💻 View Source Code](uber.cpp)
-- [🚀 Try Online](https://replit.com/@yourusername/uber-cpp)
 
 ## ✨ Features
-- **🎯 Location-Based**: 10 famous Lahore locations with real distances from UCP
-- **🚘 Multiple Vehicles**: 5 vehicle types with different rates (Bike, Auto, Economy, Premium, SUV)
-- **⚡ Dynamic Pricing**: Automatic surge pricing when drivers are scarce
-- **👥 Driver Management**: View driver profiles with ratings
-- **🧮 Fare Calculator**: Estimate fares for all vehicle types
+- ** Location-Based**: 10 famous Lahore locations with real distances from UCP
+- ** Multiple Vehicles**: 5 vehicle types with different rates (Bike, Auto, Economy, Premium, SUV)
+- ** Dynamic Pricing**: Automatic surge pricing when drivers are scarce
+- ** Driver Management**: View driver profiles with ratings
+- ** Fare Calculator**: Estimate fares for all vehicle types
 
 ## 🔧 Quick Start
 
@@ -42,10 +41,6 @@ g++ -o uber.exe uber.cpp
 uber.exe
 ```
 
-### Or copy-paste this one-liner:
-```bash
-curl -o uber.cpp https://raw.githubusercontent.com/yourusername/uber-cpp/main/uber.cpp && g++ -o uber uber.cpp && ./uber
-```
 
 ## 🚀 Usage
 1. **Book a Ride** - Complete booking with location selection
@@ -79,7 +74,7 @@ For complete documentation including:
 ```
 uber-cpp/
 ├── uber.cpp              # Main C++ source code
-├── README.md            # This file
+└── README.md            # This file
 ```
 
 
@@ -87,8 +82,8 @@ uber-cpp/
 ---
 
 <div align="center">
-  <p>Made with ❤️ for the C++ community</p>
-  <p><strong>🚗 Happy Coding! 🚗</strong></p>
+<p> Code and Documentation By Junaid Khalid </p>
+<p> Presentation By Bilal & Hadi </p>
   
   [![Star](https://img.shields.io/github/stars/yourusername/uber-cpp?style=social)](https://github.com/junaidkhalid360/uber-project-cpp)
   [![Fork](https://img.shields.io/github/forks/yourusername/uber-cpp?style=social)](https://github.com/junaidkhalid360/uber-project-cpp)
