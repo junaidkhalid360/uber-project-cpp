@@ -49,16 +49,7 @@ uber.exe
 4. **Exit** - Close the program
 
 ## 📸 Example Output
-```
-#################################################
-#                    U B E R                    #
-#################################################
-#  [1] Book a Ride                              #
-#  [2] Calculate Fare                           #
-#  [3] View Available Drivers                   #
-#  [4] Exit                                     #
-#################################################
-```
+https://s8.ezgif.com/tmp/ezgif-8d17fc96789b42d6.gif
 
 ## 📚 Documentation
 For complete documentation including:
