@@ -84,9 +84,6 @@ uber-cpp/
 <div align="center">
 <p> Code and Documentation By Junaid Khalid </p>
 <p> Presentation By Bilal & Hadi </p>
-  
-  [![Star](https://img.shields.io/github/stars/yourusername/uber-cpp?style=social)](https://github.com/junaidkhalid360/uber-project-cpp)
-  [![Fork](https://img.shields.io/github/forks/yourusername/uber-cpp?style=social)](https://github.com/junaidkhalid360/uber-project-cpp)
 </div>
 
 ---
