@@ -83,7 +83,8 @@ uber-cpp/
 
 <div align="center">
 <p> Code and Documentation By Junaid Khalid </p>
-<p> Presentation By Bilal & Hadi </p>
+<p> Presentation Made by Zubair & Hadi </p>
+<p> Presented By Bilal </p>
 </div>
 
 ---
