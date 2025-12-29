@@ -49,7 +49,7 @@ uber.exe
 4. **Exit** - Close the program
 
 ## 📸 Example Output
-[![Demo Video](https://img.youtube.com/vi/YOUR_VIDEO_ID/0.jpg)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)
+[![Demo Video](https://s8.ezgif.com/tmp/ezgif-8d17fc96789b42d6.gif)](https://s8.ezgif.com/tmp/ezgif-8d17fc96789b42d6.gif)
 
 ## 📚 Documentation
 For complete documentation including:
